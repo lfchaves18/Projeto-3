@@ -16,6 +16,7 @@ namespace Projeto3
         public double KmLitroAlcool { get; set; }
         public double QuantidadeAtualGas { get; set; }
         public double QuantidadeAtualAlcool { get; set; }
+        public int StatusPneu { get; set; }
 
         public void Cadastrar()
         {
@@ -125,7 +126,7 @@ namespace Projeto3
             }
         }
 
-        public void Dirigir()
+        public void Dirigir2()
         {
 
             double distancia;
@@ -152,12 +153,12 @@ namespace Projeto3
                     QuantidadeAtualGas -= quantidadePercorridaLitros;
                     litrosNecessarios -= quantidadePercorridaLitros;
 
-                    string opcaoAbastecer = "s";
+
                     while (litrosNecessarios > 0)
                     {
 
                         Console.WriteLine("A quantidade atual de combustivel, não percorre a distancia solicitada. Deseja abastecer o veiculo? (S ou N)");
-                        opcaoAbastecer = Console.ReadLine().ToUpper().Trim();
+                        string opcaoAbastecer = Console.ReadLine().ToUpper().Trim();
                         while (opcaoAbastecer != "S" && opcaoAbastecer != "N")
                         {
                             Console.WriteLine("Invalido! Deseja abastecer o veiculo? (S ou N) ");
@@ -170,10 +171,12 @@ namespace Projeto3
                             Abastecer();
                             litrosNecessarios -= quantidadePercorridaLitros;
                         }
+
                         else
                         {
                             Console.WriteLine("Você optou por não abastecer! A viagem foi cancelada");
-                            break;
+                            return;
+
                         }
                     }
                 }
@@ -217,15 +220,19 @@ namespace Projeto3
                                 distanciaPercorrida = QuantidadeAtualAlcool * KmLitroAlcool;
                                 quantidadePercorridaLitros = (distanciaPercorrida / KmLitroAlcool);
                                 QuantidadeAtualAlcool -= quantidadePercorridaLitros;
-                                QuantidadeAtualAlcool -= litrosNecessarios;
+
 
 
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                Console.WriteLine($" Distancia percorrida");
+                                Console.WriteLine($" Distancia percorrida, faltam {litrosNecessarios * KmLitroAlcool}");
                                 Console.ResetColor();
                             }
 
-                            else Console.WriteLine("Você optou por não abastecer! A viagem foi cancelada");
+                            else
+                            {
+                                Console.WriteLine("Você optou por não abastecer! A viagem foi cancelada");
+                                return;
+                            }
                         }
                     }
                     else // caso tem combustivel suficiente para fazer a corrida
@@ -277,13 +284,14 @@ namespace Projeto3
                                 Console.WriteLine($" Distancia percorrida com sucesso");
                                 Console.ResetColor();
                             }
-                            else Console.WriteLine("Você optou por não abastecer! A viagem foi cancelada");
-
-
+                            else
+                            {
+                                Console.WriteLine("Você optou por não abastecer! A viagem foi cancelada");
+                                return;
+                            }
                         }
-
-
                     }
+
                     else // caso tem combustivel suficiente para fazer a corrida
                     {
                         double quantidadePercorridaLitros = (distancia / KmLitroGas);
@@ -294,10 +302,7 @@ namespace Projeto3
                         Console.ResetColor();
                     }
                 }
-
-
             }
-
         }
 
         public void Abastecer()
@@ -328,7 +333,7 @@ namespace Projeto3
 
                     if (opcaoCompletar == "S")// se quiser completar
                     {
-                        double completar = CapacidadeTanque - QuantidadeAtualAlcool;
+                        double completar = CapacidadeTanque - (QuantidadeAtualAlcool+QuantidadeAtualGas);
                         QuantidadeAtualAlcool += completar;
 
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -341,7 +346,7 @@ namespace Projeto3
                         Console.WriteLine("Quantos litros de alcool você quer abastecer? ");
                         while ((!double.TryParse(Console.ReadLine(), out aux) || aux <= 0)) Console.WriteLine("Invalido! Quantos litros de alcool você quer abastecer: ");
 
-                        if (CapacidadeTanque >= aux + QuantidadeAtualAlcool)
+                        if (CapacidadeTanque >= aux + (QuantidadeAtualAlcool+QuantidadeAtualGas))
                         {
                             QuantidadeAtualAlcool += aux;
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -365,7 +370,7 @@ namespace Projeto3
                     }
                     if (opcaoCompletar == "S")
                     {
-                        double completar = CapacidadeTanque - QuantidadeAtualGas;
+                        double completar = CapacidadeTanque - (QuantidadeAtualGas+QuantidadeAtualAlcool);
                         QuantidadeAtualGas += completar;
 
                         Console.ForegroundColor = ConsoleColor.Green;
@@ -380,7 +385,7 @@ namespace Projeto3
                         Console.WriteLine("Quantos litros de gasolina você quer abastecer? ");
                         while ((!double.TryParse(Console.ReadLine(), out aux) || aux <= 0)) Console.WriteLine("Invalido! Quantos litros de gasolina você quer abastecer: ");
 
-                        if (CapacidadeTanque >= aux + QuantidadeAtualGas)
+                        if (CapacidadeTanque >= aux + (QuantidadeAtualGas+QuantidadeAtualAlcool))
                         {
                             QuantidadeAtualGas += aux;
                             Console.ForegroundColor = ConsoleColor.Green;
@@ -494,6 +499,29 @@ namespace Projeto3
         {
             double autonomiaTotal = kmLitro * quantidadeAtualCombustivel;
             return autonomiaTotal;
+        }
+
+        public void Dirigir(double kmPorLitro, double qteCombustivel) // metodo generico para dirigir
+        {
+            double distancia;
+            Console.WriteLine("Quantos km você deseja dirigir: ");
+            while ((!double.TryParse(Console.ReadLine(), out distancia) || distancia <= 0)) Console.WriteLine("Invalido! Quantos km você deseja dirigir: ");
+
+            double autonomia = Autonomia(kmPorLitro, qteCombustivel);
+
+            while (distancia > 0)
+            {
+                if (distancia > autonomia) // se a distancia for maior que a autonomia
+                {
+
+                }
+                else // se a distancia não for maior que a autonomia
+                {
+                    double litroNecessarios = distancia / kmPorLitro;
+                    qteCombustivel -= litroNecessarios;
+                }
+            }
+
         }
     }
 }
