@@ -1,32 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Projeto3
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
+            //TODO: console clear
+
             uint opcaoMenu;
 
-            Gerenciamento gerenciamento = new Gerenciamento();
-            Veiculo veiculo = new Veiculo();
-            Viagem viagem = new Viagem();
+            GerenciamentoSistema gerenciamento = new GerenciamentoSistema();
 
             do
             {
-
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("\n -----VEICULO----- \n");
-                Console.WriteLine("1- Cadastrar veiculo. \n");
-                Console.WriteLine("2- Cadastrar viagem.\n ");
-                Console.WriteLine("3- Dirigir. \n");
-                Console.WriteLine("4. Abastecer. \n");
-                Console.WriteLine("5- Visualizar combustivel no tanque. \n");
-                Console.WriteLine("6- Visualizar autonomia. \n");
-                Console.WriteLine("7- Visualizar dados do veiculo. \n");
-                Console.WriteLine("8- Visualizar dados da viagem.\n");
-                Console.WriteLine("9- Calibrar pneu.\n");
-                Console.WriteLine("10- Visualizar status do pneu.\n \n ");
+                Console.WriteLine("\n -----Bem vindo----- \n");
+                Console.WriteLine("1- Veiculo. \n");
+                Console.WriteLine("2- Percurso.\n ");
+                Console.WriteLine("3- Viagem.\n\n");
                 Console.WriteLine("0- Sair.\n");
                 Console.ResetColor();
                 while (!uint.TryParse(Console.ReadLine(), out opcaoMenu))
@@ -35,144 +28,173 @@ namespace Projeto3
 
                 switch (opcaoMenu)
                 {
+
                     case 1:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR CADASTRAR UM VEICULO =====");
-                        Console.ResetColor();
-                        veiculo = gerenciamento.CadastrarVeiculo();
+                        uint subMenuVeiculo;
 
-                        // veiculo.Cadastrar();
+                        do
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("\n===== VEICULO =====\n");
+                            Console.ResetColor();
+                            Console.WriteLine("1- Cadastrar. \n");
+                            Console.WriteLine("2- Mostrar. \n");
+                            Console.WriteLine("3- Calibrar pneu. \n");
+                            Console.WriteLine("4- Status pneu. \n");
+                            Console.WriteLine("5- Abastecer. \n");
+                            Console.WriteLine("6- Visualizar combustivel no tanque. \n");
+                            Console.WriteLine("7- Autonomia. \n");
+                            Console.WriteLine("0- Sair");
+                            while (!uint.TryParse(Console.ReadLine(), out subMenuVeiculo))
+                                Console.WriteLine($"Invalido! Digite novamente a opção desejada: ");
 
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
+                            switch (subMenuVeiculo)
+                            {
+                                case 1:
+                                    ListaVeiculo.Add(gerenciamento.CadastrarVeiculo());
+
+                                    break;
+
+                                case 2:
+                                    gerenciamento.MostarVeiculo(ListaVeiculo);
+
+                                    break;
+
+                                case 3:
+                                    gerenciamento.CalibrarPneu(ListaVeiculo);
+                                    break;
+
+                                case 4:
+                                    gerenciamento.MostarStatusPneu(ListaVeiculo);
+                                    break;
+
+                                case 5:
+                                    gerenciamento.Abastecer(ListaVeiculo);
+                                    break;
+
+                                case 6:
+                                    gerenciamento.MostrarCombustivel(ListaVeiculo);
+                                    break;
+
+                                case 7:
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\n===== Autonomia =====\n");
+                                    Console.ResetColor();
+                                    break;
+
+                                case 0:
+                                    Console.WriteLine("\n Você escolheu sair. \n");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.WriteLine("\t* OPÇÃO INVALIDA * ");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
+                            }
+
+
+                        } while (subMenuVeiculo != 0);
+
                         break;
 
                     case 2:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR CADASTRAR UMA VIAGEM =====");
-                        Console.ResetColor();
-                        viagem = gerenciamento.CadastrarViagem();
 
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-                    case 3:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR DIRIGIR O VEICULO =====");
-                        Console.ResetColor();
-                        //verifica se existem veiculos, se não existir aparecer a mensagem
-                        if (veiculo.Marca == null) Console.WriteLine("Não exiestem veiculos cadastrados!");   
-                        else gerenciamento.Dirigir(veiculo, viagem);
-                        // veiculo.TipoCombustivel == "A" ? veiculo.Dirigir(veiculo.KmLitroAlcool, veiculo.QuantidadeAtualAlcool) : veiculo.Dirigir(veiculo.KmLitroGas, veiculo.QuantidadeAtualGas);
-
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-
-                    case 4:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR ABASTECER O VEICULO =====");
-                        Console.ResetColor();
-
-                        //verifica se existe veiculo, se não existir aparece a mensagem.
-                        if (veiculo.Marca == null) Console.WriteLine("Não existem veiculos cadastrados!");
-
-                        //se existir, permite abastecer
-                        else
-                        { //se o tanque tiver cheio, não permite que abasteça
-                            if (veiculo.CapacidadeTanque == veiculo.QuantidadeAtualAlcool + veiculo.QuantidadeAtualGas)
-                                Console.WriteLine("O tanque do veiculo está cheio!");
-                            else veiculo.Abastecer(); // se tiver possibilidade de abastecer, é liberado o abastecimento
-                        }
-
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-
-                    case 5:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR VISUALIZAR O COMBUSTIVEL DO VEICULO =====");
-                        Console.ResetColor();
-
-                        double combustivelTotal = veiculo.QuantidadeAtualAlcool + veiculo.QuantidadeAtualGas;
-                        Console.WriteLine($"\nA quantidade atual de combustivel é: {combustivelTotal:F1} litros");
-
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
-
-                    case 6:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR VISUALIZAR A AUTONOMIA DO VEICULO =====");
-                        Console.ResetColor();
-
-                        if (veiculo.Marca == null) Console.WriteLine("Não existem veiculos cadastrados!");
-                        else
+                        uint subMenuViagem;
+                        do
                         {
-                            double autonomiaAlcool = veiculo.Autonomia(veiculo.KmLitroAlcool, veiculo.QuantidadeAtualAlcool);
-                            double autonomiaGasolina = veiculo.Autonomia(veiculo.KmLitroGas, veiculo.QuantidadeAtualGas);
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("\n===== Percurso =====\n");
+                            Console.ResetColor();
+                            Console.WriteLine("1- Cadastrar. \n");
+                            Console.WriteLine("2- Mostrar. \n\n");
+                            Console.WriteLine("0- Sair. \n");
+                            while (!uint.TryParse(Console.ReadLine(), out subMenuViagem))
+                                Console.WriteLine($"Invalido! Digite novamente a opção desejada: ");
 
-                            Console.WriteLine($"Autonomia total: {(autonomiaAlcool + autonomiaGasolina):F2} km");
-                        }
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
+                            switch (subMenuViagem)
+                            {
+                                case 1:
+                                    ListaPercurso.Add(gerenciamento.CadastrarPercurso());
+                                    break;
+
+                                case 2:
+                                    gerenciamento.MostrarPercursos(ListaPercurso);
+                                    break;
+
+                                case 0:
+                                    Console.WriteLine("\n Você escolheu sair. \n");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
+
+                                default:
+                                    Console.WriteLine("\t* OPÇÃO INVALIDA * ");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
+                            }
+
+                        } while (subMenuViagem != 0);
                         break;
 
-                    case 7:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR MOSTRAR OS DADOS DO VEICULO =====");
-                        Console.ResetColor();
-                        if (veiculo.Marca == null) Console.WriteLine("Não existem veiculos cadastrados!");
-                        else gerenciamento.MostarVeiculo(veiculo);
+                    case 3:
 
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                        uint subMenuRelatorio;
+                        do
+                        {
+                            Console.ForegroundColor = ConsoleColor.DarkYellow;
+                            Console.WriteLine("\n===== VIAGEM =====\n");
+                            Console.ResetColor();
+                            Console.WriteLine("1- Gerar relatorio da viagem. \n");
+                            Console.WriteLine("2- Mostrar viagens. \n");
+                            Console.WriteLine("3- Viajar. \n\n");
+                            Console.WriteLine("0- Sair. \n");
+                            while (!uint.TryParse(Console.ReadLine(), out subMenuRelatorio))
+                                Console.WriteLine($"Invalido! Digite novamente a opção desejada: ");
 
-                    case 8:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR VISUALIZAR OS DADOS DA VIAGEM =====");
-                        Console.ResetColor();
+                            switch (subMenuRelatorio)
+                            {
+                                case 1:
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
+                                    Console.WriteLine("\n===== Gerar relatorio =====\n");
+                                    Console.ResetColor();
 
-                        if (viagem.KM == 0) Console.WriteLine("Não existem viagens cadastradas");
-                        else gerenciamento.MostrarViagem(viagem);
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                                    break;
 
-                    case 9:
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR CALIBRAR O PNEU DO VEICULO =====");
-                        Console.ResetColor();
+                                case 2:
+                                    gerenciamento.MostrarViagem(ListaViagem);
 
-                        if (veiculo.Marca == null) Console.WriteLine("Não existem veiculos cadastrados! ");
-                        else veiculo.CalibrarPneu();
+                                    //relatorio.VerViagens(ListaViagem);
 
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
-                        break;
+                                    break;
 
-                    case 10:
-                        if (veiculo.Marca == null) Console.WriteLine("Não existem veiculos cadastrados! ");
-                        else veiculo.MostarStatusPneu();
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("===== VOCÊ ESCOLHEU POR VER O STATUS NO PNEU =====");
-                        Console.ResetColor();
+                                case 3:
+                                    ListaViagem.Add(gerenciamento.GerarViagem(ListaVeiculo, ListaPercurso));
+                                    break;
 
+                                case 0:
+                                    Console.WriteLine("\n Você escolheu sair. \n");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
 
+                                default:
+                                    Console.WriteLine("\t* OPÇÃO INVALIDA * ");
+                                    Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    break;
+                            }
 
-                        Console.WriteLine("\nPressione ENTER para limpar o console e voltar para o Menu\n");
-                        Console.ReadLine();
-                        Console.Clear();
+                        } while (subMenuRelatorio != 0);
                         break;
 
                     case 0:
@@ -188,6 +210,7 @@ namespace Projeto3
                         Console.ReadLine();
                         Console.Clear();
                         break;
+
                 }
 
             } while (opcaoMenu != 0);

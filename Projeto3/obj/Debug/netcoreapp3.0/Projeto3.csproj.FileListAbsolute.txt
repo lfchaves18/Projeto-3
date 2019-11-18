@@ -1,0 +1,44 @@
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.exe
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.deps.json
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.json
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.dev.json
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.pdb
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.csprojAssemblyReference.cache
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfoInputs.cache
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfo.cs
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\source\repos\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.pdb
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.exe
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.deps.json
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.json
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.dev.json
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.pdb
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.csprojAssemblyReference.cache
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfoInputs.cache
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfo.cs
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\Desktop\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.pdb
+D:\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.csprojAssemblyReference.cache
+D:\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfoInputs.cache
+D:\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfo.cs
+D:\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.dll
+D:\Projeto3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.pdb
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.exe
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.deps.json
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.json
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.dev.json
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.dll
+D:\Projeto3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.pdb
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.exe
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.deps.json
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.json
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.runtimeconfig.dev.json
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\bin\Debug\netcoreapp3.0\Projeto3.pdb
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.csprojAssemblyReference.cache
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfoInputs.cache
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.AssemblyInfo.cs
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.dll
+C:\Users\Dev4Jobs4\Desktop\Projeto 3 parte 3\Projeto3\obj\Debug\netcoreapp3.0\Projeto3.pdb
